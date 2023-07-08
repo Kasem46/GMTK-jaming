@@ -27,8 +27,10 @@ public class StraightProjectile : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && clicked == false) { //Places line where player clicked
             mousePos = Input.mousePosition;
             point = cam.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, cam.nearClipPlane));
-            transform.position = point;
-            clicked = true;
+            if (checkbound(point) == true) {
+                transform.position = point;
+                clicked = true;
+                }
         } else if (Input.GetMouseButton(0) && clicked == true){ //Angles line towards cursor while mouse is held down
             
             Vector3 mousePos2 = Input.mousePosition;
@@ -90,5 +92,9 @@ public class StraightProjectile : MonoBehaviour
         GameObject newProjectile = Instantiate(projectile, point,Quaternion.identity);
 
         newProjectile.GetComponent<Bullet>().setMove(endDir.normalized, 2f);
+    }
+
+    bool checkbound(Vector3 mousePos) {
+        if (mousePos.x != Mathf.Clamp((float)mousePos.x, -2.75f, 2.75f) || mousePos.y != Mathf.Clamp((float)mousePos.y, -4.5f, 0f)) { return true; } else { return false; }
     }
 }

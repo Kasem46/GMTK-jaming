@@ -55,94 +55,62 @@ public class Movement : MonoBehaviour
         Vector2 Diagonal = new Vector2(-1, 1);
 
         //Dectect hits
-        if (hit.collider != null)
-        {
+        if (hit.collider != null){
             distanceUp = Mathf.Abs(hit.point.y - transform.position.y);
-        }
-        else
-        {
+        }else{
             distanceUp = 10;
-        }
-        hit = Physics2D.Raycast(transform.position, -Vector2.up);
-        if (hit.collider != null)
-        {
+        }hit = Physics2D.Raycast(transform.position, -Vector2.up);
+        if (hit.collider != null){
             distanceDown = Mathf.Abs(hit.point.y - transform.position.y);
-        }
-        else
-        {
+        }else{
             distanceDown = 10;
-        }
-        hit = Physics2D.Raycast(transform.position, Vector2.left);
-        if (hit.collider != null)
-        {
+        }hit = Physics2D.Raycast(transform.position, Vector2.left);
+        if (hit.collider != null){
             distanceLeft = Mathf.Abs(hit.point.x - transform.position.x);
-        }
-        else
-        {
+        }else{
             distanceLeft = 10;
-        }
-        hit = Physics2D.Raycast(transform.position, -Vector2.left);
-        if (hit.collider != null)
-        {
+        }hit = Physics2D.Raycast(transform.position, -Vector2.left);
+        if (hit.collider != null){
             distanceRight = Mathf.Abs(hit.point.x - transform.position.x);
-        }
-        else
-        {
+        }else{
             distanceRight = 10;
-        }
-        hit = Physics2D.Raycast(transform.position, Vector2.one);
-        if (hit.collider != null)
-        {
+        }hit = Physics2D.Raycast(transform.position, Vector2.one);
+        if (hit.collider != null){
             distanceUpRight = Pythagorian(hit.point, transform.position);
-        }
-        else
-        {
+        }else{
             distanceUpRight = 10;
-        }
-        hit = Physics2D.Raycast(transform.position, Diagonal);
-        if (hit.collider != null)
-        {
+        }hit = Physics2D.Raycast(transform.position, Diagonal);
+        if (hit.collider != null){
             distanceUpLeft = Pythagorian(hit.point, transform.position);
-        }
-        else
-        {
+        }else{
             distanceUpLeft = 10;
-        }
-        hit = Physics2D.Raycast(transform.position, -Diagonal);
-        if (hit.collider != null)
-        {
+        }hit = Physics2D.Raycast(transform.position, -Diagonal);
+        if (hit.collider != null){
             distanceDownRight = Pythagorian(hit.point, transform.position);
-        }
-        else
-        {
+        }else{
             distanceDownRight = 10;
-        }
-        hit = Physics2D.Raycast(transform.position, -Vector2.one);
-        if (hit.collider != null)
-        {
+        }hit = Physics2D.Raycast(transform.position, -Vector2.one);
+        if (hit.collider != null){
             distanceDownLeft = Pythagorian(hit.point, transform.position);
-        }
-        else
-        {
+        }else{
             distanceDownLeft = 10;
         }
         float[] distances = new float[8] { distanceUp, distanceUpRight, distanceRight, distanceDownRight, distanceDown, distanceDownLeft, distanceLeft, distanceUpLeft };
         int smallest = getSmallest(distances);
         //What to do
-        switch (smallest)
-        {
+        switch (smallest){
             case 0:
-                transform.Translate(0, -.07f, 0);
-                break;
+               transform.Translate(0, -.07f, 0);
+               break;
             case 1:
-                transform.Translate(-.06f, -.06f, 0);
-                break;
+               transform.Translate(-.06f, -.06f, 0);
+               break;
             case 2:
-                transform.Translate(-.07f, 0, 0);
-                break;
+               transform.Translate(-.07f, 0, 0);
+               break;
             case 3:
-                transform.Translate(-.06f, .06f, 0);
-                break;
+               transform.Translate(-.06f, .06f, 0);
+               break;
             case 4:
                 transform.Translate(0, .07f, 0);
                 break;
@@ -153,7 +121,9 @@ public class Movement : MonoBehaviour
                 transform.Translate(.07f, 0, 0);
                 break;
             case 7:
-                transform.Translate(.07f, -.07f, 0);
+                transform.Translate(.06f, -.06f, 0);
+                break;
+            case 8:
                 break;
         }
         Vector3 pos = transform.position;
@@ -179,6 +149,8 @@ public class Movement : MonoBehaviour
                 position = i;
             }
         }
-        return position;
+        if (smallestVal > 2) { 
+            position = 8; 
+        } return position;
     }
 }
