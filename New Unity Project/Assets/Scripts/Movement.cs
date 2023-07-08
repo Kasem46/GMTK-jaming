@@ -5,6 +5,8 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     //double speed;
+    public float speed = 1;
+
     //int counter;
     public float distanceUp = (float)10.0;
     public float distanceDown = (float)10.0;
@@ -100,28 +102,28 @@ public class Movement : MonoBehaviour
         //What to do
         switch (smallest){
             case 0:
-               transform.Translate(0, -.07f, 0);
+               transform.Translate(new Vector3(0, -1f, 0)*Time.deltaTime*speed);
                break;
             case 1:
-               transform.Translate(-.06f, -.06f, 0);
+               transform.Translate(new Vector3(-.9f, -.9f, 0)* Time.deltaTime*speed);
                break;
             case 2:
-               transform.Translate(-.07f, 0, 0);
+               transform.Translate(new Vector3(-1f, 0, 0) * Time.deltaTime*speed);
                break;
             case 3:
-               transform.Translate(-.06f, .06f, 0);
+               transform.Translate(new Vector3(-.9f, .9f, 0) * Time.deltaTime*speed);
                break;
             case 4:
-                transform.Translate(0, .07f, 0);
+                transform.Translate(new Vector3(0, 1f, 0) * Time.deltaTime*speed);
                 break;
             case 5:
-                transform.Translate(.06f, .06f, 0);
+                transform.Translate(new Vector3(.9f, .9f, 0) * Time.deltaTime*speed);
                 break;
             case 6:
-                transform.Translate(.07f, 0, 0);
+                transform.Translate(new Vector3(1f, 0, 0) * Time.deltaTime*speed);
                 break;
             case 7:
-                transform.Translate(.06f, -.06f, 0);
+                transform.Translate(new Vector3(.9f, -.9f, 0) * Time.deltaTime*speed);
                 break;
             case 8:
                 break;
