@@ -13,6 +13,9 @@ public class StraightProjectile : MonoBehaviour
     public Vector3 endDir;
     public double angle = Mathf.PI;
     public GameObject projectile;
+    public GameObject bomb;
+    public Vector3 point3 = new Vector3();
+    public Vector3 mousePos3 = new Vector3();
 
 
     // Start isn't called before the first frame update
@@ -81,6 +84,14 @@ public class StraightProjectile : MonoBehaviour
         } else if(clicked == true){ //Player is not holding, attack can start
             fireProjectile();
             clicked = false;
+        }
+        if (Input.GetMouseButtonDown(1) == true) {
+            mousePos3 = Input.mousePosition;
+            point3 = cam.ScreenToWorldPoint(new Vector3(mousePos3.x, mousePos3.y, +1));
+            if (checkbound(point3) == true){
+                GameObject newBomb = Instantiate(bomb, point3, Quaternion.identity);
+                newBomb.GetComponent<DropBomb>().ArmBomb(point3);
+            }
         }
 
         //apply angle 
