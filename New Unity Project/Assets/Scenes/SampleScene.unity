@@ -932,6 +932,8 @@ MonoBehaviour:
   point3: {x: 0, y: 0, z: 0}
   mousePos3: {x: 0, y: 0, z: 0}
   manager: {fileID: 1346735428}
+  ballcount: 5
+  ballInterval: 3
 --- !u!212 &1939236072
 SpriteRenderer:
   m_ObjectHideFlags: 0

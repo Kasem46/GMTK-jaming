@@ -14,6 +14,12 @@ public class GameManager : MonoBehaviour
     //timer variables
     public float time = 150f;
     public Text timer;
+    
+    public StraightProjectile ProjSpawner;
+    
+    //ball Display
+    public Text BallCount;
+    public Image BallBall;
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +32,7 @@ public class GameManager : MonoBehaviour
     {
         updateTime();
         UpdateHealth();
+        updateBallCount();
     }
 
     //make healthbar good
@@ -60,5 +67,10 @@ public class GameManager : MonoBehaviour
         float minutes = Mathf.FloorToInt(timeToDisplay / 60);
         float seconds = Mathf.FloorToInt(timeToDisplay % 60);
         timer.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+    }
+
+    void updateBallCount() {
+        BallCount.text = "X " + ProjSpawner.ballcount;
+        BallBall.color = new Color(255, 255, 255,ProjSpawner.ballInterval * 85);
     }
 }

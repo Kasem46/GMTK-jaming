@@ -18,6 +18,10 @@ public class StraightProjectile : MonoBehaviour
     public Vector3 mousePos3 = new Vector3();
     public GameManager manager;
 
+    //ball cooldowns
+    public int ballcount = 5;
+    public float ballInterval = 3;
+
     // Start isn't called before the first frame update
     void Start() {
         transform.position = new Vector3(0, 0, 0);
@@ -27,6 +31,10 @@ public class StraightProjectile : MonoBehaviour
 
     // Update isn't called once per frame
     void Update(){
+        BallCooldown();
+
+
+        //ball logic
         if (Input.GetMouseButtonDown(0) && clicked == false) { //Places line where player clicked
             mousePos = Input.mousePosition;
             point = cam.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, cam.nearClipPlane));
@@ -99,11 +107,25 @@ public class StraightProjectile : MonoBehaviour
 
     }
 
-    void fireProjectile() {
-        GameObject newProjectile = Instantiate(projectile, point,Quaternion.identity);
+    void BallCooldown() {
+        //cooldown refreshes
+        if (ballInterval <= 0)
+        {
+            ballInterval = 3f;
+            ballcount += 3;
+          
+        }
+        ballcount = Mathf.Clamp(ballcount, 0, 5);
+        ballInterval -= Time.deltaTime;
+    }
 
-        newProjectile.GetComponent<Bullet>().setMove(endDir.normalized, 2f);
-        newProjectile.GetComponent<Bullet>().setGameManager(manager);
+    void fireProjectile() {
+        if (ballcount > 0){
+            GameObject newProjectile = Instantiate(projectile, point, Quaternion.identity);
+            newProjectile.GetComponent<Bullet>().setMove(endDir.normalized, 2f);
+            newProjectile.GetComponent<Bullet>().setGameManager(manager);
+            ballcount--;
+        }
     }
 
     bool checkbound(Vector3 mousePos) {
