@@ -10,6 +10,7 @@ public class StraightProjectile : MonoBehaviour
     public Vector3 point = new Vector3();
     public Vector3 point2 = new Vector3();
     public Vector3 mousePos = new Vector3();
+    public Vector3 endDir;
     public double angle = Mathf.PI;
     public GameObject projectile;
 
@@ -35,6 +36,8 @@ public class StraightProjectile : MonoBehaviour
             float distanceX = point2.x - point.x;
             float distanceY = point2.y - point.y;
             float distanceHypotnuse = Mathf.Sqrt(Mathf.Pow(distanceX, 2) + Mathf.Pow(distanceY, 2));
+
+            endDir = new Vector3(distanceX, distanceY);
             if (distanceX > 0f && distanceY > 0f)
             {
                 //any sin cos or tan
@@ -67,14 +70,25 @@ public class StraightProjectile : MonoBehaviour
 
             //angle in degrees
             //Debug.Log(angle * Mathf.Rad2Deg);
-
+            if (distanceX == 0f && distanceY == 0f) {
+                endDir = new Vector3(0,-1);
+                angle = Mathf.PI;
+            }
             
 
-        } else { //Player is not holding, attack can start
+        } else if(clicked == true){ //Player is not holding, attack can start
+            fireProjectile();
             clicked = false;
         }
+
         //apply angle 
         this.transform.eulerAngles = new Vector3(0, 0, -(float)(Mathf.Rad2Deg*angle));
 
+    }
+
+    void fireProjectile() {
+        GameObject newProjectile = Instantiate(projectile, point,Quaternion.identity);
+
+        newProjectile.GetComponent<Bullet>().setMove(endDir.normalized, 2f);
     }
 }
