@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 //i hate
 public class GameManager : MonoBehaviour
@@ -31,6 +32,9 @@ public class GameManager : MonoBehaviour
     void UpdateHealth()
     {
         healthBar.transform.localScale = new Vector3((float)health / 20f, 0.25f, 1);
+        if (health <= 0) {
+            SceneManager.LoadScene("WIN");
+        }
     }
 
     void updateTime()
@@ -43,6 +47,7 @@ public class GameManager : MonoBehaviour
         else
         {
             //YOU LOSE 
+            SceneManager.LoadScene("LOSE");
         }
     }
 
