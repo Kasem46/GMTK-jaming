@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &9090670165407348607
+--- !u!1 &1961206713128332598
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,38 +8,39 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 9090670165407348604}
-  - component: {fileID: 9090670165407348605}
-  - component: {fileID: 9090670165407348579}
+  - component: {fileID: 3292570652083093861}
+  - component: {fileID: 1441885679378324809}
+  - component: {fileID: -7487395934936751315}
+  - component: {fileID: -4348506634422951736}
   m_Layer: 0
-  m_Name: Isometric Diamond
+  m_Name: BombProj
   m_TagString: Untagged
-  m_Icon: {fileID: 2800000, guid: 8dafc8bde78edde44bf6e6aab96eb100, type: 3}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &9090670165407348604
+--- !u!4 &3292570652083093861
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9090670165407348607}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.95, y: -6.12, z: -1}
+  m_GameObject: {fileID: 1961206713128332598}
+  m_LocalRotation: {x: 0, y: 0, z: 0.00000038941437, w: -1}
+  m_LocalPosition: {x: 10.44, y: -6.16, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &9090670165407348605
+--- !u!212 &1441885679378324809
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9090670165407348607}
+  m_GameObject: {fileID: 1961206713128332598}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -85,16 +86,45 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &9090670165407348579
+--- !u!114 &-7487395934936751315
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9090670165407348607}
+  m_GameObject: {fileID: 1961206713128332598}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19f3e9aca01cd2342899698c30c28819, type: 3}
+  m_Script: {fileID: 11500000, guid: bbf6bc3d4f778c24eb9263a84734a708, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectiles: {fileID: 1961206713128332598, guid: 8d00129ce1628eb449fffb5ad1faec37, type: 3}
+  projectiles: {fileID: 1961206713128332598}
+--- !u!60 &-4348506634422951736
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1961206713128332598}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 0.5}
+    newSize: {x: 1, y: 0.5}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0, y: 0.25}
+      - {x: -0.5, y: 0}
+      - {x: 0, y: -0.25}
+      - {x: 0.5, y: 0}

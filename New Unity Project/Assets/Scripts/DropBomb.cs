@@ -5,8 +5,9 @@ using UnityEngine;
 public class DropBomb : MonoBehaviour
 {
     public static bool moveDown = false;
-    
-    public static float explodePoint;
+    public GameObject projectiles;
+    public float explodePoint;
+    float timer = 0;
 
     // Start is called before the first frame update
     void Start(){
@@ -16,10 +17,16 @@ public class DropBomb : MonoBehaviour
     // Update is called once per frame
     void Update(){
         if (moveDown == true) {
+            explodePoint = (Random.value + 0.2f) * 10f;
             transform.Translate(0, -2f * Time.deltaTime, 0);
-            if (explodePoint >= (((int)transform.position.y) * 10)) {
+            if (timer >= explodePoint) {
+                projectiles.GetComponent<ExplosionProjectiles>().CreateProjectiles(transform.position);
                 Destroy(this.gameObject);
+                timer = 0f;
+            } else {
+                timer += Time.deltaTime;
             }
+            
         }
 
     }
@@ -28,6 +35,6 @@ public class DropBomb : MonoBehaviour
     }
     public void ArmBomb(Vector3 pos) {
         moveDown = true;
-        explodePoint = Random.Range(0, -50);
+        
     }
 }

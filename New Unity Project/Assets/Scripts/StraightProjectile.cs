@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.Color;
 using Unity.Mathematics;
 
 public class StraightProjectile : MonoBehaviour
@@ -17,7 +18,6 @@ public class StraightProjectile : MonoBehaviour
     public Vector3 point3 = new Vector3();
     public Vector3 mousePos3 = new Vector3();
     public GameManager manager;
-
     //ball cooldowns
     public int ballcount = 5;
     public float ballInterval = 3;
@@ -32,7 +32,6 @@ public class StraightProjectile : MonoBehaviour
     // Update isn't called once per frame
     void Update(){
         BallCooldown();
-
 
         //ball logic
         if (Input.GetMouseButtonDown(0) && clicked == false) { //Places line where player clicked
@@ -96,7 +95,7 @@ public class StraightProjectile : MonoBehaviour
         if (Input.GetMouseButtonDown(1) == true) {
             mousePos3 = Input.mousePosition;
             point3 = cam.ScreenToWorldPoint(new Vector3(mousePos3.x, mousePos3.y, +1));
-            if (checkbound(point3) == true){
+            if (CheckBoundBomb(point3) == true){
                 GameObject newBomb = Instantiate(bomb, point3, Quaternion.identity);
                 newBomb.GetComponent<DropBomb>().ArmBomb(point3);
             }
@@ -131,4 +130,8 @@ public class StraightProjectile : MonoBehaviour
     bool checkbound(Vector3 mousePos) {
         if (mousePos.x != Mathf.Clamp((float)mousePos.x, -2.75f, 2.75f) || mousePos.y != Mathf.Clamp((float)mousePos.y, -4.5f, 0f)) { return true; } else { return false; }
     }
+    bool CheckBoundBomb(Vector3 mousePos) {
+        if (mousePos.x != Mathf.Clamp((float) mousePos.x, -3.25f, 3.25f) && mousePos.y != Mathf.Clamp((float) mousePos.y, -4.5f, 0f)) { return true; } else { return false; }
+    }
+    
 }
