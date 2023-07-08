@@ -419,7 +419,6 @@ GameObject:
   - component: {fileID: 905114101}
   - component: {fileID: 905114100}
   - component: {fileID: 905114099}
-  - component: {fileID: 905114102}
   m_Layer: 0
   m_Name: Mov
   m_TagString: Untagged
@@ -439,7 +438,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b640c0cd2bf18d34b926c9f46b9c0ece, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  distanceUp: 10
+  distanceDown: 10
+  distanceLeft: 10
+  distanceRight: 10
+  distanceUpRight: 10
+  distanceUpLeft: 10
+  distanceDownRight: 10
+  distanceDownLeft: 10
 --- !u!212 &905114100
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -507,32 +513,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &905114102
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 905114098}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!1 &1275617837
 GameObject:
   m_ObjectHideFlags: 0
