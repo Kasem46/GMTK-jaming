@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8446300420164753418}
   - component: {fileID: 8446300420164753419}
   - component: {fileID: 8446300420164753416}
+  - component: {fileID: 8803039030261489236}
   m_Layer: 0
   m_Name: Circle
   m_TagString: Projectile
@@ -99,3 +100,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MoveDir: {x: 0, y: 0, z: 0}
   speed: 0
+--- !u!58 &8803039030261489236
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8446300420164753417}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
