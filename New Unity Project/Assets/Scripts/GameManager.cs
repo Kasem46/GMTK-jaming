@@ -37,6 +37,10 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void takeDamage(int amount) { 
+        health -= amount;
+    }
+
     void updateTime()
     {
         if (time > 0)

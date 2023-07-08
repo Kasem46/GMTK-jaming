@@ -57,6 +57,7 @@ public class Movement : MonoBehaviour
         Vector2 Diagonal = new Vector2(-1, 1);
 
         //Dectect hits
+        
         if (hit.collider != null){
             distanceUp = Mathf.Abs(hit.point.y - transform.position.y);
         }else{

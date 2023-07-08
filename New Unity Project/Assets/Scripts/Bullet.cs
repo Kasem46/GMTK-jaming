@@ -6,6 +6,8 @@ public class Bullet : MonoBehaviour
 {
     public Vector3 MoveDir;
     public float speed = 1f;
+    public int damage = 20;
+    public GameManager manager;
 
     
     // Start is called before the first frame update
@@ -18,10 +20,21 @@ public class Bullet : MonoBehaviour
     void Update()
     {
         transform.Translate(MoveDir * speed * Time.deltaTime,Space.World);
+
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        manager.takeDamage(damage);
+        Destroy(gameObject);
     }
 
     public void setMove(Vector3 moveDir, float moveSpeed) {
         this.MoveDir = moveDir;
         this.speed = moveSpeed;
+    }
+
+    public void setGameManager(GameManager manager) {
+        this.manager = manager;
     }
 }

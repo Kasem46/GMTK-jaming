@@ -16,7 +16,7 @@ public class StraightProjectile : MonoBehaviour
     public GameObject bomb;
     public Vector3 point3 = new Vector3();
     public Vector3 mousePos3 = new Vector3();
-
+    public GameManager manager;
 
     // Start isn't called before the first frame update
     void Start() {
@@ -103,6 +103,7 @@ public class StraightProjectile : MonoBehaviour
         GameObject newProjectile = Instantiate(projectile, point,Quaternion.identity);
 
         newProjectile.GetComponent<Bullet>().setMove(endDir.normalized, 2f);
+        newProjectile.GetComponent<Bullet>().setGameManager(manager);
     }
 
     bool checkbound(Vector3 mousePos) {
