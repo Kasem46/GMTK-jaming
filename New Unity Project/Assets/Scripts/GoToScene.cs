@@ -11,4 +11,7 @@ public class GoToScene : MonoBehaviour
     public void moveToMenu(){
         SceneManager.LoadScene("Menu");
     }
+    public void moveToTutorial(){
+        SceneManager.LoadScene("Tutorial");
+    }
 }
