@@ -1003,7 +1003,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b640c0cd2bf18d34b926c9f46b9c0ece, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2.2
+  speed: 1
   distanceUp: 10
   distanceDown: 10
   distanceLeft: 10
@@ -1012,6 +1012,14 @@ MonoBehaviour:
   distanceUpLeft: 10
   distanceDownRight: 10
   distanceDownLeft: 10
+  distanceUpUpRight: 10
+  distanceRightRightUp: 10
+  distanceRightRightDown: 10
+  distanceDownDownRight: 10
+  distanceDownDownLeft: 10
+  distanceLeftLeftDown: 10
+  distanceLeftLeftUp: 10
+  distanceUpUpLeft: 10
   randomPos: {x: 0, y: 0, z: 0}
   counter: 0
 --- !u!212 &905114100
