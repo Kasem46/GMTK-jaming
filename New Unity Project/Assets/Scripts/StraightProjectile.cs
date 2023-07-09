@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using static UnityEngine.Color;
 using Unity.Mathematics;
+using UnityEngine.SceneManagement;
 
 public class StraightProjectile : MonoBehaviour
 {
@@ -35,6 +36,9 @@ public class StraightProjectile : MonoBehaviour
 
     // Update isn't called once per frame
     void Update(){
+        if (Input.GetKeyDown("escape")){
+            SceneManager.LoadScene("Menu");
+        }
         BallCooldown();
         BOMBCooldown();
 
