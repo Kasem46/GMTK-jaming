@@ -16,11 +16,14 @@ public class Movement : MonoBehaviour
     public float distanceUpLeft = (float)10.0;
     public float distanceDownRight = (float)10.0;
     public float distanceDownLeft = (float)10.0;
+    public Vector3 randomPos;
+    public int counter = 0;
     // Start is called before the first frame update
     void Start()
     {
         transform.position = new Vector3(0, 0, 0) * Time.deltaTime;
         transform.Translate(0, (float)-2.5, -1);
+        randomPos = GenerateNewRandom();
         //counter = 0;
     }
 
@@ -51,7 +54,7 @@ public class Movement : MonoBehaviour
             counter++;
         }
         */
-
+        
         //Raycast
         RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.up);
         Vector2 Diagonal = new Vector2(-1, 1);
@@ -127,6 +130,12 @@ public class Movement : MonoBehaviour
                 transform.Translate(new Vector3(.9f, -.9f, 0) * Time.deltaTime*speed);
                 break;
             case 8:
+                transform.position = Vector3.MoveTowards(transform.position, randomPos, 1 * Time.deltaTime * speed);
+                counter++;
+                if(counter == 20) {
+                    randomPos = GenerateNewRandom();
+                    counter = 0;
+                }
                 break;
         }
         Vector3 pos = transform.position;
@@ -155,5 +164,8 @@ public class Movement : MonoBehaviour
         if (smallestVal > 2) { 
             position = 8; 
         } return position;
+    }
+    Vector3 GenerateNewRandom() {
+        randomPos = new Vector3(Random.Range(-2.75f, 2.75f), Random.Range(-4.5f, 0f), -1); return randomPos;
     }
 }
