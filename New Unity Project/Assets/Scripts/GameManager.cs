@@ -26,6 +26,10 @@ public class GameManager : MonoBehaviour
     public Text BombCount;
     public Image BombBomb;
 
+    //fade out tutorial text
+    public Text esc;
+    float timerer = 5f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +39,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        FadeOutEscape();
         updateTime();
         UpdateHealth();
         updateBallCount();
@@ -83,5 +88,13 @@ public class GameManager : MonoBehaviour
     void updateBombCount() {
         BombCount.text = "X " + ProjSpawner.bombCount;
         BombBomb.color = new Color(255, 255, 255, ProjSpawner.bombInterval * 0.125f);
+    }
+
+    void FadeOutEscape() {
+        
+        if (timerer > 0f) {
+            timerer -= Time.deltaTime;
+        }
+        esc.color = new Color(255, 255, 255, timerer * 0.2f);
     }
 }
