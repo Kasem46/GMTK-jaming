@@ -55,35 +55,8 @@ public class StraightProjectile : MonoBehaviour
             float distanceHypotnuse = Mathf.Sqrt(Mathf.Pow(distanceX, 2) + Mathf.Pow(distanceY, 2));
 
             endDir = new Vector3(distanceX, distanceY);
-            if (distanceX > 0f && distanceY > 0f)
-            {
-                //any sin cos or tan
-                angle = Mathf.Asin(distanceX / distanceHypotnuse);
-            }
-            else if (distanceX < 0f && distanceY > 0f)
-            {
-                //sine
-                angle = Mathf.Asin(distanceY / distanceHypotnuse) + 1.5 * Mathf.PI;
-            }
-            else if (distanceX < 0f && distanceY < 0f)
-            {
-                //tan
-                angle = Mathf.Atan(distanceX / distanceY) + Mathf.PI;
-            }
-            else if (distanceX > 0f && distanceY < 0f)
-            {
-                //cos
-                angle = Mathf.Acos(distanceX / distanceHypotnuse) + 0.5 * Mathf.PI;
-            }
-            else if (distanceX == 0f && distanceY > 0f)
-            {
-                angle = 0.0;
-            }
-            else if (distanceX > 0f && distanceY == 0f) {
-                angle = (0.5 * Mathf.PI);
-            } else if (distanceX < 0f && distanceY == 0f) {
-                angle = (1.5 * Mathf.PI);
-            }
+
+            CalculateAngle(distanceX,distanceY,distanceHypotnuse);
 
             //angle in degrees
             //Debug.Log(angle * Mathf.Rad2Deg);
@@ -147,6 +120,43 @@ public class StraightProjectile : MonoBehaviour
     }
     bool CheckBoundBomb(Vector3 mousePos) {
         if (mousePos.x != Mathf.Clamp((float) mousePos.x, -3.25f, 3.25f) && mousePos.y != Mathf.Clamp((float) mousePos.y, -4.5f, 0f)) { return true; } else { return false; }
+    }
+
+    void CalculateAngle(float distanceX, float distanceY, float distanceHypotnuse) {
+
+        if (distanceX > 0f && distanceY > 0f)
+        {
+            //any sin cos or tan
+            angle = Mathf.Asin(distanceX / distanceHypotnuse);
+        }
+        else if (distanceX < 0f && distanceY > 0f)
+        {
+            //sine
+            angle = Mathf.Asin(distanceY / distanceHypotnuse) + 1.5 * Mathf.PI;
+        }
+        else if (distanceX < 0f && distanceY < 0f)
+        {
+            //tan
+            angle = Mathf.Atan(distanceX / distanceY) + Mathf.PI;
+        }
+        else if (distanceX > 0f && distanceY < 0f)
+        {
+            //cos
+            angle = Mathf.Acos(distanceX / distanceHypotnuse) + 0.5 * Mathf.PI;
+        }
+        else if (distanceX == 0f && distanceY > 0f)
+        {
+            angle = 0.0;
+        }
+        else if (distanceX > 0f && distanceY == 0f)
+        {
+            angle = (0.5 * Mathf.PI);
+        }
+        else if (distanceX < 0f && distanceY == 0f)
+        {
+            angle = (1.5 * Mathf.PI);
+        }
+
     }
     
 }

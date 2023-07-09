@@ -158,8 +158,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -518, y: 240}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: -343.11002, y: 137}
+  m_SizeDelta: {x: 72.17, y: 72.17}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &36342768
 MonoBehaviour:
@@ -300,8 +300,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -407, y: 135}
-  m_SizeDelta: {x: 120.9526, y: 58.7717}
+  m_AnchoredPosition: {x: -263, y: 72}
+  m_SizeDelta: {x: 87.29, y: 42.41}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &164206423
 MonoBehaviour:
@@ -325,7 +325,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 47
+    m_FontSize: 37
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -633,8 +633,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -518, y: 133}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: -343.11002, y: 70.56}
+  m_SizeDelta: {x: 72.17, y: 72.17}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &534039325
 MonoBehaviour:
@@ -709,8 +709,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -407, y: 240}
-  m_SizeDelta: {x: 120.9526, y: 58.7717}
+  m_AnchoredPosition: {x: -263, y: 137}
+  m_SizeDelta: {x: 87.29, y: 42.41}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &564049944
 MonoBehaviour:
@@ -734,7 +734,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 47
+    m_FontSize: 37
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -787,8 +787,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePos4: {x: 0, y: 0, z: 0}
   point4: {x: 0, y: 0, z: 0}
-  moveSpeed: 1
+  moveSpeed: 2.5
+  rotateSpeed: 120
   cam: {fileID: 519420031}
+  moving: 0
+  coolDown: 5
+  alpha: 1
+  MyColor: {r: 1, g: 1, b: 1, a: 0}
 --- !u!212 &608541254
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -999,7 +1004,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b640c0cd2bf18d34b926c9f46b9c0ece, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  speed: 2.2
   distanceUp: 10
   distanceDown: 10
   distanceLeft: 10
@@ -1437,7 +1442,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -1852,7 +1857,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 240}
+  m_AnchoredPosition: {x: 0, y: 132}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2088089358
