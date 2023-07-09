@@ -22,6 +22,10 @@ public class StraightProjectile : MonoBehaviour
     public int ballcount = 5;
     public float ballInterval = 3;
 
+    //BOMB cooldowns
+    public int bombCount = 3;
+    public float bombInterval = 10;
+
     // Start isn't called before the first frame update
     void Start() {
         transform.position = new Vector3(0, 0, 0);
@@ -32,6 +36,7 @@ public class StraightProjectile : MonoBehaviour
     // Update isn't called once per frame
     void Update(){
         BallCooldown();
+        BOMBCooldown();
 
         //ball logic
         if (Input.GetMouseButtonDown(0) && clicked == false) { //Places line where player clicked
@@ -95,9 +100,10 @@ public class StraightProjectile : MonoBehaviour
         if (Input.GetMouseButtonDown(1) == true) {
             mousePos3 = Input.mousePosition;
             point3 = cam.ScreenToWorldPoint(new Vector3(mousePos3.x, mousePos3.y, +1));
-            if (CheckBoundBomb(point3) == true){
+            if (CheckBoundBomb(point3) == true && bombCount > 0){
                 GameObject newBomb = Instantiate(bomb, point3, Quaternion.identity);
                 newBomb.GetComponent<DropBomb>().ArmBomb(point3);
+                bombCount -= 1;
             }
         }
 
@@ -116,6 +122,15 @@ public class StraightProjectile : MonoBehaviour
         }
         ballcount = Mathf.Clamp(ballcount, 0, 5);
         ballInterval -= Time.deltaTime;
+    }
+
+    void BOMBCooldown() {
+        if (bombInterval <= 0) {
+            bombInterval = 8f;
+            bombCount += 2;
+        }
+        bombCount = Mathf.Clamp(bombCount, 0, 3);
+        bombInterval -= Time.deltaTime;
     }
 
     void fireProjectile() {

@@ -22,6 +22,10 @@ public class GameManager : MonoBehaviour
     public Text BallCount;
     public Image BallBall;
 
+    //bomb Display
+    public Text BombCount;
+    public Image BombBomb;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,6 +38,7 @@ public class GameManager : MonoBehaviour
         updateTime();
         UpdateHealth();
         updateBallCount();
+        updateBombCount();
     }
 
     //make healthbar good
@@ -73,5 +78,10 @@ public class GameManager : MonoBehaviour
     void updateBallCount() {
         BallCount.text = "X " + ProjSpawner.ballcount;
         BallBall.color = new Color(255, 255, 255,ProjSpawner.ballInterval * 85);
+    }
+
+    void updateBombCount() {
+        BombCount.text = "X " + ProjSpawner.bombCount;
+        BombBomb.color = new Color(255, 255, 255, ProjSpawner.bombInterval * 31);
     }
 }
