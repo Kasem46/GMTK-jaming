@@ -5,6 +5,8 @@ using UnityEngine;
 public class ExplosionProjectiles : MonoBehaviour
 {
     public GameObject projectiles;
+    public int damage = 20;
+    public GameManager manager;
     // Start is called before the first frame update
     void Start(){
         Destroy(gameObject, 10);
@@ -20,5 +22,12 @@ public class ExplosionProjectiles : MonoBehaviour
             GameObject newProjectiles = Instantiate(projectiles, pos, Quaternion.identity);
             newProjectiles.transform.Rotate(0.0f, 0.0f, (36f*i), Space.Self);
         }  
-    } 
+    }
+    private void OnTriggerEnter2D(Collider2D collision) {
+        manager.GetComponent<GameManager>().takeDamage(damage);
+        Destroy(gameObject);
+    }
+    public void setGameManager(GameManager manager){
+        this.manager = manager;
+    }
 }

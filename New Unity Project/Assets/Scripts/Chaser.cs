@@ -14,9 +14,9 @@ public class Chaser : MonoBehaviour{
 
     // Update is called once per frame
     void Update(){
-        transform.position = Vector2.MoveTowards(transform.position, cube.GetComponent<Transform>().position, moveSpeed * Time.deltaTime);
+        
         if (Input.GetMouseButton(2)){
-            
+            transform.position = Vector2.MoveTowards(transform.position, cube.GetComponent<Transform>().position, moveSpeed * Time.deltaTime);
         }
     }
 }

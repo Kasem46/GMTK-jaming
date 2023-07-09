@@ -16,7 +16,8 @@ public class GameManager : MonoBehaviour
     public Text timer;
     
     public StraightProjectile ProjSpawner;
-    
+    public GameObject BombSpawn;
+
     //ball Display
     public Text BallCount;
     public Image BallBall;
@@ -24,7 +25,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        BombSpawn.GetComponent<ExplosionProjectiles>().setGameManager(this);
     }
 
     // Update is called once per frame

@@ -23,8 +23,7 @@ public class Bullet : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
+    private void OnTriggerEnter2D(Collider2D collision){
         manager.takeDamage(damage);
         Destroy(gameObject);
     }
