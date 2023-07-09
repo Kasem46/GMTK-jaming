@@ -5,7 +5,7 @@ using UnityEngine;
 public class ExplosionProjectiles : MonoBehaviour
 {
     public GameObject projectiles;
-    public int damage = 20;
+    public int damage = 10;
     public GameManager manager;
     // Start is called before the first frame update
     void Start(){

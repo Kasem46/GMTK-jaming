@@ -99,6 +99,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectiles: {fileID: 1961206713128332598}
+  damage: 20
+  manager: {fileID: 0}
 --- !u!60 &-4348506634422951736
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -124,7 +126,7 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0, y: 0.25}
-      - {x: -0.5, y: 0}
-      - {x: 0, y: -0.25}
-      - {x: 0.5, y: 0}
+    - - {x: 0.0030098273, y: 0.20986938}
+      - {x: -0.42074203, y: 0.0060196538}
+      - {x: -0.001003299, y: -0.20685959}
+      - {x: 0.44682693, y: 0.0020064893}
