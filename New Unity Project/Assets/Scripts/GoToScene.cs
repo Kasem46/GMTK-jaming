@@ -14,4 +14,7 @@ public class GoToScene : MonoBehaviour
     public void moveToTutorial(){
         SceneManager.LoadScene("Tutorial");
     }
+    public void QuitGame() { 
+        Application.Quit();
+    }
 }
