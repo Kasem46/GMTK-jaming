@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     public int health = 100;
 
     //timer variables
-    public float time = 150f;
+    public float time = 90f;
     public Text timer;
     
     public StraightProjectile ProjSpawner;
@@ -77,11 +77,11 @@ public class GameManager : MonoBehaviour
 
     void updateBallCount() {
         BallCount.text = "X " + ProjSpawner.ballcount;
-        BallBall.color = new Color(255, 255, 255,ProjSpawner.ballInterval * 85);
+        BallBall.color = new Color(255, 255, 255,ProjSpawner.ballInterval * 0.33f);
     }
 
     void updateBombCount() {
         BombCount.text = "X " + ProjSpawner.bombCount;
-        BombBomb.color = new Color(255, 255, 255, ProjSpawner.bombInterval * 31);
+        BombBomb.color = new Color(255, 255, 255, ProjSpawner.bombInterval * 0.125f);
     }
 }

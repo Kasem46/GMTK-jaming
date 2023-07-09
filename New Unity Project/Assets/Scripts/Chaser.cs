@@ -6,8 +6,8 @@ public class Chaser : MonoBehaviour
 {
     public Vector3 mousePos4 = new Vector3();
     public Vector3 point4 = new Vector3();
-    public float moveSpeed = .5f;
-    public float rotateSpeed = 5f;
+    public float moveSpeed = 2.5f;
+    public float rotateSpeed = 120f;
     public Camera cam;
     public bool moving = false;
 
